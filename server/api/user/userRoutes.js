@@ -1,6 +1,6 @@
 var router = require('express').Router();
 var user = require('./userModel');
-var _ = require('lodash');
+
 
 router.param('username', function(req,res,next,id){
 	var theUser = user.findOne({'username': req.body.username});
@@ -38,7 +38,7 @@ router.route('/:username')
 		res.json(theUser || {});		
 	})
 	.delete(function(req,res){
-		user.remove({username: req.body.username}, function(err){}
+		user.remove({username: req.body.username}, function(err){})
 	})
 ;
 
@@ -49,6 +49,6 @@ function getUsers(res){
 		if(err) res.send(err);
 		res.json(users);
 	});
-}
+};
 
 module.exports = router;
