@@ -39,7 +39,9 @@ router.route('/:username')
 	})
 	.delete(function(req,res){
 		console.log("In the /:username /DELETE");
-		user.remove({username: req.param.username}, function(err){})
+		user.remove({username: req.username}, function(err){
+			getUsers(res);
+		});
 	})
 	.post(function(req,res){
 		console.log("In the /:username /POST");
