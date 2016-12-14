@@ -8,6 +8,6 @@ router.get("/",function(req,res){
     res.json({"error" : false,"message" : "This is the /api/ default page"});
 });
 router.use('/users', require('./user/userRoutes'));
-router.use('/posts', require('./post/postRouters'));
+//router.use('/posts', require('./post/postRouters'));
  
 module.exports = router;
